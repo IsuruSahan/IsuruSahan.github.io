@@ -14,7 +14,7 @@ function sendMail() {
           document.getElementById("phone").value = "";
 
           console.log(res);
-          alert("Your message sent successfully!!")
+          alert("Thanks For Submitting Your Contact Details! One Of Our Agent Will Contact You Soon")
   
       })
       .catch(err=>console.log(err));
