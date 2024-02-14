@@ -28,14 +28,54 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src="email.js"></script>
+
   <script src="https://kit.fontawesome.com/2bf7cef206.js" crossorigin="anonymous"></script>
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "E9kowksnpIbEJCzvQ",
+      });
+   })();
+</script>
 
 </head>
 
 <body>
 
 
-
+  <div class="modal fade" id="initialModal" tabindex="-1" role="dialog" aria-labelledby="initialModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="initialModalLabel">Please Enter Your Contact Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Add phone number input field -->
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" placeholder="Enter Your Name">
+          </div>
+          <div class="form-group mt-2">
+            <input type="text" class="form-control" id="phone" placeholder="Enter Your Contact Number">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- Add submit button -->
+          <button type="button" class="btn btn-primary" onclick="sendMail()">Submit</button>
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+          <!-- Add other buttons if needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
 
 
@@ -817,8 +857,31 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
+  <!-- Include full version of jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Your custom script to trigger the modal -->
+<script>
+  $(document).ready(function(){
+    $('#initialModal').modal('show');
+  });
+
+  // function sendMail() {
+  //   // Your logic to send mail goes here
+  //   // Example:
+  //   // $.post("send_mail.php", {name: $("#name").val(), phone: $("#phone").val()}, function(data) {
+  //   //   console.log("Mail sent successfully");
+  //   // });
+
+  //   // Close the modal after sending mail
+    $('#initialModal').modal('hide');
+
+</script>
 
 </body>
 
