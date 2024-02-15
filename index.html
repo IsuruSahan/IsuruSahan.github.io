@@ -27,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/watsappstyle.css" rel="stylesheet">
 
   <script src="email.js"></script>
 
@@ -36,17 +37,102 @@
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
 <script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "E9kowksnpIbEJCzvQ",
-      });
-   })();
+  (function(){
+    emailjs.init({
+      publicKey: "E9kowksnpIbEJCzvQ",
+    });
+  })();
+</script>
+
+<script>
+  let isChatboxVisible = false;
+  const chatbox = document.querySelector(".WA_Chat_Widget .WA_ChatBox");
+  function hideChatbox() {
+      isChatboxVisible = false;
+      chatbox.style.display = "none";
+  }
+  function toggleChatbox() {
+    const chatbox = document.querySelector(".WA_Chat_Widget .WA_ChatBox");
+    if (chatbox) {
+        isChatboxVisible = !isChatboxVisible;
+        chatbox.style.display = isChatboxVisible ? "block" : "none";
+    } else {
+        console.error("Chatbox element not found.");
+    }
+  }
 </script>
 
 </head>
 
 <body>
 
+
+  <div class="WA_Chat_Widget" data-position="bottom-right">
+    <div class="WA_ChatBox">
+        <div class="WA_ChatBox_Header">
+            <div class="avatarBox">
+                <img src="assets\img\rdlogo.png" alt="Chat Avatar">
+            </div>
+            <div class="infoBox">
+                <h4 class="name">RealDealz</h4>
+                <span class="answer_time">Typically replies within a day</span>
+            </div>
+  
+        </div>
+        <div class="WA_ChatBox_Body">
+            <div class="message">
+                <h4 class="username">RealDealz</h4>
+                <div class="message_content">
+                    <p>Hey There, How can I help you?</p>
+                </div>
+            </div>
+        </div>
+        <div class="WA_ChatBox_Footer">
+            <a class="btn btn-whatsapp" href="http://wa.me/702007415" target="_blank">Start Chat</a>
+        </div>
+    </div>
+    <div class="WA_FloatingButton" onclick="toggleChatbox()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#4FCE5D" viewBox="0 0 90 90">
+            <path
+                d="M90 43.841c0 24.213-19.779 43.841-44.182 43.841a44.256 44.256 0 01-21.357-5.455L0 90l7.975-23.522a43.38 43.38 0 01-6.34-22.637C1.635 19.628 21.416 0 45.818 0 70.223 0 90 19.628 90 43.841zM45.818 6.982c-20.484 0-37.146 16.535-37.146 36.859 0 8.065 2.629 15.534 7.076 21.61L11.107 79.14l14.275-4.537A37.122 37.122 0 0045.819 80.7c20.481 0 37.146-16.533 37.146-36.857S66.301 6.982 45.818 6.982zm22.311 46.956c-.273-.447-.994-.717-2.076-1.254-1.084-.537-6.41-3.138-7.4-3.495-.993-.358-1.717-.538-2.438.537-.721 1.076-2.797 3.495-3.43 4.212-.632.719-1.263.809-2.347.271-1.082-.537-4.571-1.673-8.708-5.333-3.219-2.848-5.393-6.364-6.025-7.441-.631-1.075-.066-1.656.475-2.191.488-.482 1.084-1.255 1.625-1.882.543-.628.723-1.075 1.082-1.793.363-.717.182-1.344-.09-1.883-.27-.537-2.438-5.825-3.34-7.977-.902-2.15-1.803-1.792-2.436-1.792-.631 0-1.354-.09-2.076-.09s-1.896.269-2.889 1.344c-.992 1.076-3.789 3.676-3.789 8.963 0 5.288 3.879 10.397 4.422 11.113.541.716 7.49 11.92 18.5 16.223C58.2 65.771 58.2 64.336 60.186 64.156c1.984-.179 6.406-2.599 7.312-5.107.9-2.512.9-4.663.631-5.111z">
+            </path>
+        </svg>
+    </div>
+  </div>
+
+<!-- 
+<div class="WA_Chat_Widget" data-position="bottom-right">
+  <div class="WA_ChatBox">
+      <div class="WA_ChatBox_Header">
+          <div class="avatarBox">
+              <img src="assets\img\rdlogo.png" alt="Chat Avatar">
+          </div>
+          <div class="infoBox">
+              <h4 class="name">RealDealz</h4>
+              <span class="answer_time">Typically replies within a day</span>
+          </div>
+
+      </div>
+      <div class="WA_ChatBox_Body">
+          <div class="message">
+              <h4 class="username">RealDealz</h4>
+              <div class="message_content">
+                  <p>Hey There, How can I help you?</p>
+              </div>
+          </div>
+      </div>
+      <div class="WA_ChatBox_Footer">
+          <a class="btn btn-whatsapp" href="http://wa.me/92123435464" target="_blank">Start Chat</a>
+      </div>
+  </div>
+  <div class="WA_FloatingButton" onclick="toggleChatbox()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#4FCE5D" viewBox="0 0 90 90">
+          <path
+              d="M90 43.841c0 24.213-19.779 43.841-44.182 43.841a44.256 44.256 0 01-21.357-5.455L0 90l7.975-23.522a43.38 43.38 0 01-6.34-22.637C1.635 19.628 21.416 0 45.818 0 70.223 0 90 19.628 90 43.841zM45.818 6.982c-20.484 0-37.146 16.535-37.146 36.859 0 8.065 2.629 15.534 7.076 21.61L11.107 79.14l14.275-4.537A37.122 37.122 0 0045.819 80.7c20.481 0 37.146-16.533 37.146-36.857S66.301 6.982 45.818 6.982zm22.311 46.956c-.273-.447-.994-.717-2.076-1.254-1.084-.537-6.41-3.138-7.4-3.495-.993-.358-1.717-.538-2.438.537-.721 1.076-2.797 3.495-3.43 4.212-.632.719-1.263.809-2.347.271-1.082-.537-4.571-1.673-8.708-5.333-3.219-2.848-5.393-6.364-6.025-7.441-.631-1.075-.066-1.656.475-2.191.488-.482 1.084-1.255 1.625-1.882.543-.628.723-1.075 1.082-1.793.363-.717.182-1.344-.09-1.883-.27-.537-2.438-5.825-3.34-7.977-.902-2.15-1.803-1.792-2.436-1.792-.631 0-1.354-.09-2.076-.09s-1.896.269-2.889 1.344c-.992 1.076-3.789 3.676-3.789 8.963 0 5.288 3.879 10.397 4.422 11.113.541.716 7.49 11.92 18.5 16.223C58.2 65.771 58.2 64.336 60.186 64.156c1.984-.179 6.406-2.599 7.312-5.107.9-2.512.9-4.663.631-5.111z">
+          </path>
+      </svg>
+  </div>
+</div> -->
 
   <div class="modal fade" id="initialModal" tabindex="-1" role="dialog" aria-labelledby="initialModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -698,65 +784,57 @@
           <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d63738.40022139684!2d101.60256689633604!3d3.1863979279081254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d3.1817898!2d101.627155!4m5!1s0x31cc4747f0a29983%3A0xa00f7b70befd518c!2srealdealz!3m2!1d3.1924479999999997!2d101.6247089!5e0!3m2!1sen!2smy!4v1707785684405!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
         </div>
 
-        <div class="row mt-5">
-
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>12-2, Jalan Medan Putra 4, Bandar Menjalara, 52200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
+        <div class="container mt-5">
+          <div class="row">
+              <!-- First column for contact info -->
+              <div class="col-lg-4">
+                  <div class="info">
+                      <div class="address">
+                          <i class="bi bi-geo-alt"></i>
+                          <h4>Location:</h4>
+                          <p>12-2, Jalan Medan Putra 4, Bandar Menjalara, 52200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
+                      </div>
+      
+                      <div class="email">
+                          <i class="bi bi-envelope"></i>
+                          <h4>Email:</h4>
+                          <p>info@example.com</p>
+                      </div>
+      
+                      <div class="phone">
+                          <i class="bi bi-phone"></i>
+                          <h4>Call:</h4>
+                          <p>03-6734 8722</p>
+                      </div>
+                  </div>
               </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>info@example.com</p>
+      
+              <!-- Second column for contact form -->
+              <div class="col-lg-8 align-self-start"> <!-- Add align-self-start to align the content to the top -->
+                  <div class="contact-form mt-5">
+                      <h2 class="text-center mb-4">Contact Us</h2>
+                      <div class="row">
+                          <div class="col-md-6 form-group">
+                              <input type="text" name="name" class="form-control" id="mname" placeholder="Your Name" required>
+                          </div>
+                          <div class="col-md-6 form-group mt-3 mt-md-0">
+                              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                          </div>
+                      </div>
+                      <div class="form-group mt-3">
+                          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                      </div>
+                      <div class="form-group mt-3">
+                          <textarea id="message" class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                      </div>
+                      <div class="form-group mt-3">
+                          <button type="button" class="btn btn-primary btn-block" onclick="sendMsg()">Send Message</button>
+                      </div>
+                  </div>
               </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>03-6734 8722</p>
-              </div>
-
-            </div>
-
           </div>
-
-
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
-
-          </div>
-
-        </div>
-
       </div>
+      
 
  
 
@@ -870,15 +948,6 @@
   $(document).ready(function(){
     $('#initialModal').modal('show');
   });
-
-  // function sendMail() {
-  //   // Your logic to send mail goes here
-  //   // Example:
-  //   // $.post("send_mail.php", {name: $("#name").val(), phone: $("#phone").val()}, function(data) {
-  //   //   console.log("Mail sent successfully");
-  //   // });
-
-  //   // Close the modal after sending mail
     $('#initialModal').modal('hide');
 
 </script>

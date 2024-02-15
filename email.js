@@ -20,3 +20,26 @@ function sendMail() {
       .catch(err=>console.log(err));
   
   }
+
+  function sendMsg() {
+    var params = {
+      name: document.getElementById("mname").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("message").value
+    };
+
+    const serviceID = "service_e5z5tlp";
+    const templateID = "template_7dqef4a";
+
+    emailjs.send(serviceID, templateID, params)
+      .then(res => {
+        document.getElementById("mname").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("subject").value = "";
+        document.getElementById("message").value = "";
+        console.log(res);
+        alert("We got your Message. Thank you for reaching us");
+      })
+      .catch(err => console.log(err));
+  }
