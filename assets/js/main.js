@@ -210,16 +210,25 @@
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item'
       });
-
+  
       let portfolioFilters = select('#portfolio-flters li', true);
-
+  
+      // Function to select the "Most Popular" filter by default
+      function selectDefaultFilter() {
+        let defaultFilter = select('[data-filter=".filter-pop"]');
+        if (defaultFilter) {
+          defaultFilter.click(); // Simulate a click event on the "Most Popular" filter
+        }
+      }
+  
+      // Click event handling for filter elements
       on('click', '#portfolio-flters li', function(e) {
         e.preventDefault();
         portfolioFilters.forEach(function(el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
-
+  
         portfolioIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
@@ -227,9 +236,12 @@
           AOS.refresh()
         });
       }, true);
+  
+      // Call the function to select the default filter
+      selectDefaultFilter();
     }
-
   });
+  
 
   /**
    * Initiate portfolio lightbox 
